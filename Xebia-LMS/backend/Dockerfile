@@ -1,10 +1,9 @@
-FROM eclipse-temurin:8-jdk AS builder
+FROM maven:3.9-eclipse-temurin-8 AS builder
 WORKDIR /app
-COPY mvnw mvnw
-COPY .mvn .mvn
 COPY pom.xml pom.xml
 COPY src src
-RUN sed -i 's/\r$//' mvnw && sed -i 's/\r$//' .mvn/apache-maven-3.9.6/bin/mvn && chmod +x mvnw && chmod -R +x .mvn && ./mvnw -DskipTests package
+RUN mvn -DskipTests package
+
 
 FROM eclipse-temurin:8-jre
 WORKDIR /app
