@@ -1,4 +1,4 @@
-import React from 'react';
++import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useSession } from './context/AuthContext';
 import QueryProvider from './context/QueryProvider';
